@@ -1,24 +1,21 @@
 # ssr
 
-## Project setup
+## vue 的 ssr 服务端渲染，使用 koa2 起的后台服务
+
+下载代码，安装依赖
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 执行编译命令
+
 ```
-yarn serve
+npm run build
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+生成 dist\server 和 dist\client 文件
 
-### Lints and fixes files
-```
-yarn lint
-```
+### 启动 koa2 服务
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+运行 node server.js

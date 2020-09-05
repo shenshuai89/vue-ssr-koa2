@@ -3,15 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build:client": "vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build --mode server",
+    "build": "npm run build:server && npm run build:client && rimraf dist\\client\\index.html"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "koa": "^2.13.0",
+    "koa-static": "^5.0.0",
+    "lodash.merge": "^4.6.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vue-server-renderer": "^2.6.12",
+    "vuex": "^3.4.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
