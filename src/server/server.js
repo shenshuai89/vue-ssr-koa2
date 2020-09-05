@@ -10,8 +10,8 @@ app.use(koaStatic(resolve("./dist/client")));
 
 // 第 2 步：获得一个createBundleRenderer
 const { createBundleRenderer } = require("vue-server-renderer");
-const bundle = require("./dist/server/vue-ssr-server-bundle.json");
-const clientManifest = require("./dist/client/vue-ssr-client-manifest.json");
+const bundle = require("../../dist/server/vue-ssr-server-bundle.json");
+const clientManifest = require("../../dist/client/vue-ssr-client-manifest.json");
 
 const renderer = createBundleRenderer(bundle, {
   runInNewContext: false,

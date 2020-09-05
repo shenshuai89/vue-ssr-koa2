@@ -4,14 +4,21 @@ const VueSSRServerPlugin = require("vue-server-renderer/server-plugin");
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
 const nodeExternals = require("webpack-node-externals");
 const merge = require("lodash.merge");
+// 1、webpack配置文件
+const webpackConfig = require("@vue/cli-service/webpack.config");
 
 // 环境变量：决定入口是客户端还是服务端
 const TARGET_NODE = process.env.WEBPACK_TARGET === "node";
 const target = TARGET_NODE ? "server" : "client";
-
+const isDev = process.env.NODE_ENV !== "production";
 module.exports = {
   css: {
     extract: process.env.NODE_ENV === "production",
+  },
+  // baseUrl: isDev ? "http://127.0.0.1:8080" : "http://127.0.0.1:3000",
+  devServer: {
+    historyApiFallback: true,
+    headers: { "Access-Control-Allow-Origin": "*" },
   },
   outputDir: "./dist/" + target,
   configureWebpack: () => ({
