@@ -5,6 +5,7 @@
   "scripts": {
     "build:client": "vue-cli-service build",
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build --mode server",
+    "start":"vue-cli-service",
     "build": "npm run build:server && npm run build:client && rimraf dist\\client\\index.html"
   },
   "dependencies": {
